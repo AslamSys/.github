@@ -7,13 +7,13 @@ Sistema distribuído de IA com **assistente de voz inteligente** e **módulos es
 ## 🔗 Navegação Rápida
 
 **Documentação por Hardware:**
-- 🏠 [Aslam (Orange Pi 5 16GB)](https://github.com/AslamSys/_system/blob/main/hardware/aslam/README.md) - 16 containers
-- 🔒 [Segurança (Jetson Orin Nano)](https://github.com/AslamSys/_system/blob/main/hardware/seguranca/README.md) - 7 containers
-- 🏭 [IoT (Raspberry Pi 3B+)](https://github.com/AslamSys/_system/blob/main/hardware/iot/README.md) - 3 containers
-- 💰 [Pagamentos (RPi 5 4GB)](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos/README.md) - 6 containers
-- 📈 [Investimentos (RPi 5 16GB)](https://github.com/AslamSys/_system/blob/main/hardware/investimentos/README.md) - 7 containers
-- 🎬 [Entretenimento (RPi 5 8GB)](https://github.com/AslamSys/_system/blob/main/hardware/entretenimento/README.md) - 6 containers
-- 💾 [NAS (RPi 5 8GB)](https://github.com/AslamSys/_system/blob/main/hardware/nas/README.md) - 8 containers
+- 🏠 [Mordomo (Orange Pi 5 16GB)](https://github.com/AslamSys/_system/blob/main/hardware/mordomo%20-%20(orange-pi-5-16gb)/README.md) - 23 containers
+- 🔒 [Segurança (Jetson Orin Nano)](https://github.com/AslamSys/_system/blob/main/hardware/seguranca%20-%20(jetson-orin-nano)/README.md) - 7 containers
+- 🏢 [IoT (Raspberry Pi 3B+)](https://github.com/AslamSys/_system/blob/main/hardware/iot%20-%20(raspberry-pi-3b)/README.md) - 4 containers
+- 💰 [Pagamentos (RPi 5 4GB)](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos%20-%20(raspberry-pi-5-4gb)/README.md) - 6 containers
+- 📈 [Investimentos (RPi 5 16GB)](https://github.com/AslamSys/_system/blob/main/hardware/investimentos%20-%20(raspberry-pi-5-16gb)/README.md) - 7 containers
+- 🎬 [Entretenimento (RPi 5 8GB)](https://github.com/AslamSys/_system/blob/main/hardware/entretenimento%20-%20(raspberry-pi-5-8gb)/README.md) - 6 containers
+- 💾 [NAS (RPi 5 8GB)](https://github.com/AslamSys/_system/blob/main/hardware/nas%20-%20(raspberry-pi-5-8gb)/README.md) - 8 containers
 
 **Repositórios:**
 - 📚 [_system (Orchestration)](https://github.com/AslamSys/_system) - Docker-compose + Documentação
@@ -255,13 +255,13 @@ Cada hardware possui README detalhado com:
 
 | Hardware | README | Containers | Status |
 |----------|--------|------------|--------|
-| Orange Pi 5 16GB (Aslam) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/aslam/README.md) | 25 (16+5+4) | ✅ Auditado |
-| Jetson Orin Nano (Segurança) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/seguranca/README.md) | 7 + LLM Vision | ✅ Documentado |
-| RPi 3B+ (IoT) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/iot/README.md) | 4 (ESP32 DIY) | ✅ Auditado |
-| RPi 5 4GB (Pagamentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos/README.md) | 6 + LLM | ✅ Documentado |
-| RPi 5 16GB (Investimentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/investimentos/README.md) | 7 + LLM | ✅ Documentado |
-| RPi 5 8GB (Entretenimento) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/entretenimento/README.md) | 6 + LLM | ✅ Documentado |
-| RPi 5 8GB (NAS) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/nas/README.md) | 8 + LLM | ✅ Documentado |
+| Orange Pi 5 16GB (Mordomo) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/mordomo%20-%20(orange-pi-5-16gb)/README.md) | 23 (14+5+4) | ✅ Auditado |
+| Jetson Orin Nano (Segurança) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/seguranca%20-%20(jetson-orin-nano)/README.md) | 7 + LLM Vision | ✅ Documentado |
+| RPi 3B+ (IoT) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/iot%20-%20(raspberry-pi-3b)/README.md) | 4 (ESP32 DIY) | ✅ Auditado |
+| RPi 5 4GB (Pagamentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos%20-%20(raspberry-pi-5-4gb)/README.md) | 6 + LLM | ✅ Documentado |
+| RPi 5 16GB (Investimentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/investimentos%20-%20(raspberry-pi-5-16gb)/README.md) | 7 + LLM | ✅ Documentado |
+| RPi 5 8GB (Entretenimento) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/entretenimento%20-%20(raspberry-pi-5-8gb)/README.md) | 6 + LLM | ✅ Documentado |
+| RPi 5 8GB (NAS) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/nas%20-%20(raspberry-pi-5-8gb)/README.md) | 8 + LLM | ✅ Documentado |
 
 ### Documentação Geral
 - **Visão Geral de Hardware:** [AslamSys/_system](https://github.com/AslamSys/_system)
