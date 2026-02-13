@@ -11,7 +11,7 @@ Sistema distribuído de IA com **assistente de voz inteligente** e **módulos es
 **1 Sistema Central (Aslam Voice Assistant) + 6 Módulos Especializados = 7 Hardwares ARM64**
 
 - **Consumo Energético:** 47-75W  
-- **Containers Totais:** 60+ (24 Aslam + 37 módulos especializados)
+- **Containers Totais:** 62+ (25 Aslam + 37 módulos especializados)
 - **LLMs Independentes:** 6 (1 central + 5 módulos, IoT sem LLM)
 - **Comunicação:** NATS (pub/sub assíncrono)
 
@@ -57,7 +57,7 @@ AslamSys/
 
 | # | Hardware | Módulo | LLM | Função Principal |
 |---|----------|--------|-----|------------------|
-| 1 | Orange Pi 5 16GB | **Aslam Voice Assistant** | Cloud (fallback Qwen 1.5B) + Gemini Flash | Assistente de voz + OpenClaw (24 containers: 16 Aslam + 5 Infra + 3 Monitoramento) |
+| 1 | Orange Pi 5 16GB | **Aslam Voice Assistant** | Cloud (fallback Qwen 1.5B) + Gemini Flash | Assistente de voz + OpenClaw (25 containers: 16 Aslam + 5 Infra + 4 Monitoramento) |
 | 2 | Jetson Orin Nano | Segurança | Qwen 3B Vision | Câmeras, YOLOv8, reconhecimento facial |
 | 3 | Raspberry Pi 3B+ | IoT | **SEM LLM** | ESP32 DIY, Access Point Wi-Fi, MQTT, BLE presence |
 | 4 | Raspberry Pi 5 4GB | Pagamentos | Qwen 1.5B | PIX, Open Banking, antifraud |
@@ -240,7 +240,7 @@ Cada hardware possui README detalhado com:
 
 | Hardware | README | Containers | Status |
 |----------|--------|------------|--------|
-| Orange Pi 5 16GB (Aslam) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/aslam/README.md) | 23 (14+5+4) | ✅ Auditado |
+| Orange Pi 5 16GB (Aslam) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/aslam/README.md) | 25 (16+5+4) | ✅ Auditado |
 | Jetson Orin Nano (Segurança) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/seguranca/README.md) | 7 + LLM Vision | ✅ Documentado |
 | RPi 3B+ (IoT) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/iot/README.md) | 4 (ESP32 DIY) | ✅ Auditado |
 | RPi 5 4GB (Pagamentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos/README.md) | 6 + LLM | ✅ Documentado |
