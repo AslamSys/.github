@@ -249,9 +249,9 @@ Cada hardware possui README detalhado com:
 | RPi 5 8GB (NAS) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/nas/README.md) | 8 + LLM | ✅ Documentado |
 
 ### Documentação Geral
-- **Visão Geral de Hardware:** [hardware/README.md](hardware/README.md)
-- **Análise Custo-Benefício:** Comparação Orange Pi vs RPi vs Jetson
-- **Protocolo NATS:** Tópicos, fluxos, exemplos práticos
+- **Visão Geral de Hardware:** [AslamSys/_system](https://github.com/AslamSys/_system)
+- **Análise Custo-Benefício:** Comparação Orange Pi vs RPi vs Jetson (ver READMEs individuais acima)
+- **Protocolo NATS:** Tópicos, fluxos, exemplos práticos (documentação em desenvolvimento)
 
 ---
 
