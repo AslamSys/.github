@@ -4,6 +4,21 @@ Sistema distribuído de IA com **assistente de voz inteligente** e **módulos es
 
 > **Aslam**: Assistente de voz com pipeline STT-LLM-TTS + 6 módulos especializados (Segurança, IoT, Pagamentos, Investimentos, Entretenimento, NAS)
 
+## 🔗 Navegação Rápida
+
+**Documentação por Hardware:**
+- 🏠 [Aslam (Orange Pi 5 16GB)](https://github.com/AslamSys/_system/blob/main/hardware/aslam/README.md) - 16 containers
+- 🔒 [Segurança (Jetson Orin Nano)](https://github.com/AslamSys/_system/blob/main/hardware/seguranca/README.md) - 7 containers
+- 🏭 [IoT (Raspberry Pi 3B+)](https://github.com/AslamSys/_system/blob/main/hardware/iot/README.md) - 3 containers
+- 💰 [Pagamentos (RPi 5 4GB)](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos/README.md) - 6 containers
+- 📈 [Investimentos (RPi 5 16GB)](https://github.com/AslamSys/_system/blob/main/hardware/investimentos/README.md) - 7 containers
+- 🎬 [Entretenimento (RPi 5 8GB)](https://github.com/AslamSys/_system/blob/main/hardware/entretenimento/README.md) - 6 containers
+- 💾 [NAS (RPi 5 8GB)](https://github.com/AslamSys/_system/blob/main/hardware/nas/README.md) - 8 containers
+
+**Repositórios:**
+- 📚 [_system (Orchestration)](https://github.com/AslamSys/_system) - Docker-compose + Documentação
+- 🗂️ [Todos os repositórios](https://github.com/orgs/AslamSys/repositories) - 54 containers
+
 ---
 
 ## 🎯 Visão Geral do Sistema
