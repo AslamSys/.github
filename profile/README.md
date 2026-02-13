@@ -10,7 +10,6 @@ Sistema distribuído de IA com **assistente de voz inteligente** e **módulos es
 
 **1 Sistema Central (Aslam Voice Assistant) + 6 Módulos Especializados = 7 Hardwares ARM64**
 
-- **Investimento Total:** $1.077 (hardwares + armazenamento + rede)
 - **Consumo Energético:** 47-75W  
 - **Containers Totais:** 60+ (24 Aslam + 37 módulos especializados)
 - **LLMs Independentes:** 6 (1 central + 5 módulos, IoT sem LLM)
@@ -56,19 +55,17 @@ AslamSys/
 
 ## 🏗️ Arquitetura de Hardware
 
-| # | Hardware | Módulo | LLM | Preço | Função Principal |
-|---|----------|--------|-----|-------|------------------|
-| 1 | Orange Pi 5 16GB | **Aslam Voice Assistant** | Cloud (fallback Qwen 1.5B) + Gemini Flash | $130 | Assistente de voz + OpenClaw (24 containers: 16 Aslam + 5 Infra + 3 Monitoramento) |
-| 2 | Jetson Orin Nano | Segurança | Qwen 3B Vision | $249 | Câmeras, YOLOv8, reconhecimento facial |
-| 3 | Raspberry Pi 3B+ | IoT | **SEM LLM** | $83 | ESP32 DIY, Access Point Wi-Fi, MQTT, BLE presence |
-| 4 | Raspberry Pi 5 4GB | Pagamentos | Qwen 1.5B | $60 | PIX, Open Banking, antifraud |
-| 5 | Raspberry Pi 5 16GB | Investimentos | Qwen 3B | $120 | Trading, apostas, ML predição |
-| 6 | Raspberry Pi 5 8GB | Entretenimento | Qwen 1.5B | $80 | Jellyfin, downloads, streaming |
-| 7 | Raspberry Pi 5 8GB | NAS | Qwen 1.5B | $355 | Storage, backup, deduplicação |
+| # | Hardware | Módulo | LLM | Função Principal |
+|---|----------|--------|-----|------------------|
+| 1 | Orange Pi 5 16GB | **Aslam Voice Assistant** | Cloud (fallback Qwen 1.5B) + Gemini Flash | Assistente de voz + OpenClaw (24 containers: 16 Aslam + 5 Infra + 3 Monitoramento) |
+| 2 | Jetson Orin Nano | Segurança | Qwen 3B Vision | Câmeras, YOLOv8, reconhecimento facial |
+| 3 | Raspberry Pi 3B+ | IoT | **SEM LLM** | ESP32 DIY, Access Point Wi-Fi, MQTT, BLE presence |
+| 4 | Raspberry Pi 5 4GB | Pagamentos | Qwen 1.5B | PIX, Open Banking, antifraud |
+| 5 | Raspberry Pi 5 16GB | Investimentos | Qwen 3B | Trading, apostas, ML predição |
+| 6 | Raspberry Pi 5 8GB | Entretenimento | Qwen 1.5B | Jellyfin, downloads, streaming |
+| 7 | Raspberry Pi 5 8GB | NAS | Qwen 1.5B | Storage, backup, deduplicação |
 
-**TOTAL: $1.077 (hardwares + periféricos)**
-
-_Nota: Comunicação e RPA foram integrados ao Aslam via OpenClaw Agent (economia de $230)_
+_Nota: Comunicação e RPA foram integrados ao Aslam via OpenClaw Agent_
 
 ---
 
