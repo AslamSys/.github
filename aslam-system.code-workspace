@@ -1,0 +1,287 @@
+{
+  "folders": [
+    {
+      "name": "📋 _system (Orchestration)",
+      "path": "../_system"
+    },
+    {
+      "name": "🏠 .github (Overview)",
+      "path": "."
+    },
+
+    // ══════════════════════════════════════════════
+    // 🧠 ECOSSISTEMA 1 — MORDOMO CENTRAL (Orange Pi 5 16GB)
+    // ══════════════════════════════════════════════
+
+    // ── STT (Speech-to-Text) ──
+    {
+      "name": "🎤 mordomo-audio-capture-vad",
+      "path": "../mordomo-audio-capture-vad"
+    },
+    {
+      "name": "🎤 mordomo-wake-word-detector",
+      "path": "../mordomo-wake-word-detector"
+    },
+    {
+      "name": "🎤 mordomo-speaker-verification",
+      "path": "../mordomo-speaker-verification"
+    },
+    {
+      "name": "🎤 mordomo-whisper-asr",
+      "path": "../mordomo-whisper-asr"
+    },
+    {
+      "name": "🎤 mordomo-speaker-id-diarization",
+      "path": "../mordomo-speaker-id-diarization"
+    },
+    {
+      "name": "🎤 mordomo-source-separation",
+      "path": "../mordomo-source-separation"
+    },
+
+    // ── TTS (Text-to-Speech) ──
+    {
+      "name": "🔊 mordomo-tts-engine",
+      "path": "../mordomo-tts-engine"
+    },
+    {
+      "name": "🔊 mordomo-audio-bridge",
+      "path": "../mordomo-audio-bridge"
+    },
+    {
+      "name": "💡 mordomo-visual-feedback",
+      "path": "../mordomo-visual-feedback"
+    },
+
+    // ── CORE ──
+    {
+      "name": "🧠 mordomo-orchestrator",
+      "path": "../mordomo-orchestrator"
+    },
+    {
+      "name": "🧠 mordomo-brain",
+      "path": "../mordomo-brain"
+    },
+    {
+      "name": "🧠 mordomo-system-watchdog",
+      "path": "../mordomo-system-watchdog"
+    },
+    {
+      "name": "🧠 mordomo-skills-runner",
+      "path": "../mordomo-skills-runner"
+    },
+    {
+      "name": "🧠 mordomo-core-gateway",
+      "path": "../mordomo-core-gateway"
+    },
+    {
+      "name": "🧠 mordomo-action-dispatcher",
+      "path": "../mordomo-action-dispatcher"
+    },
+    {
+      "name": "🧠 mordomo-dashboard-ui",
+      "path": "../mordomo-dashboard-ui"
+    },
+
+    // ── OpenClaw Agent ──
+    {
+      "name": "🐙 mordomo-openclaw-agent",
+      "path": "../mordomo-openclaw-agent"
+    },
+
+    // ══════════════════════════════════════════════
+    // 📱 ECOSSISTEMA 2 — IOT (Raspberry Pi 3B+ 1GB)
+    // ══════════════════════════════════════════════
+    {
+      "name": "📱 mordomo-iot-orchestrator",
+      "path": "../mordomo-iot-orchestrator"
+    },
+    {
+      "name": "📱 mordomo-iot-mqtt-broker",
+      "path": "../mordomo-iot-mqtt-broker"
+    },
+    {
+      "name": "📱 mordomo-iot-state-cache",
+      "path": "../mordomo-iot-state-cache"
+    },
+
+    // ══════════════════════════════════════════════
+    // 🛡️ ECOSSISTEMA 4 — SEGURANÇA (Jetson Orin Nano 8GB)
+    // ══════════════════════════════════════════════
+    {
+      "name": "🛡️ seguranca-brain",
+      "path": "../seguranca-brain"
+    },
+    {
+      "name": "🛡️ seguranca-camera-stream-manager",
+      "path": "../seguranca-camera-stream-manager"
+    },
+    {
+      "name": "🛡️ seguranca-yolo-detector",
+      "path": "../seguranca-yolo-detector"
+    },
+    {
+      "name": "🛡️ seguranca-face-recognition",
+      "path": "../seguranca-face-recognition"
+    },
+    {
+      "name": "🛡️ seguranca-event-analyzer",
+      "path": "../seguranca-event-analyzer"
+    },
+    {
+      "name": "🛡️ seguranca-alert-manager",
+      "path": "../seguranca-alert-manager"
+    },
+    {
+      "name": "🛡️ seguranca-video-recorder",
+      "path": "../seguranca-video-recorder"
+    },
+
+    // ══════════════════════════════════════════════
+    // 💳 ECOSSISTEMA 5 — PAGAMENTOS (Raspberry Pi 5 4GB)
+    // ══════════════════════════════════════════════
+    {
+      "name": "💳 pagamentos-brain",
+      "path": "../pagamentos-brain"
+    },
+    {
+      "name": "💳 pagamentos-pix-gateway",
+      "path": "../pagamentos-pix-gateway"
+    },
+    {
+      "name": "💳 pagamentos-open-banking",
+      "path": "../pagamentos-open-banking"
+    },
+    {
+      "name": "💳 pagamentos-fraud-detector",
+      "path": "../pagamentos-fraud-detector"
+    },
+    {
+      "name": "💳 pagamentos-invoice-generator",
+      "path": "../pagamentos-invoice-generator"
+    },
+    {
+      "name": "💳 pagamentos-wallet-integrator",
+      "path": "../pagamentos-wallet-integrator"
+    },
+
+    // ══════════════════════════════════════════════
+    // 📈 ECOSSISTEMA 6 — INVESTIMENTOS (Raspberry Pi 5 16GB)
+    // ══════════════════════════════════════════════
+    {
+      "name": "📈 investimentos-brain",
+      "path": "../investimentos-brain"
+    },
+    {
+      "name": "📈 investimentos-trading-bot",
+      "path": "../investimentos-trading-bot"
+    },
+    {
+      "name": "📈 investimentos-technical-analysis",
+      "path": "../investimentos-technical-analysis"
+    },
+    {
+      "name": "📈 investimentos-news-sentiment",
+      "path": "../investimentos-news-sentiment"
+    },
+    {
+      "name": "📈 investimentos-betting-bot",
+      "path": "../investimentos-betting-bot"
+    },
+    {
+      "name": "📈 investimentos-ml-predictor",
+      "path": "../investimentos-ml-predictor"
+    },
+    {
+      "name": "📈 investimentos-portfolio-manager",
+      "path": "../investimentos-portfolio-manager"
+    },
+
+    // ══════════════════════════════════════════════
+    // 🎬 ECOSSISTEMA 7 — ENTRETENIMENTO (Raspberry Pi 5 8GB)
+    // ══════════════════════════════════════════════
+    {
+      "name": "🎬 entretenimento-brain",
+      "path": "../entretenimento-brain"
+    },
+    {
+      "name": "🎬 entretenimento-media-server",
+      "path": "../entretenimento-media-server"
+    },
+    {
+      "name": "🎬 entretenimento-radarr-movies",
+      "path": "../entretenimento-radarr-movies"
+    },
+    {
+      "name": "🎬 entretenimento-sonarr-series",
+      "path": "../entretenimento-sonarr-series"
+    },
+    {
+      "name": "🎬 entretenimento-bazarr-subtitles",
+      "path": "../entretenimento-bazarr-subtitles"
+    },
+    {
+      "name": "🎬 entretenimento-streaming-aggregator",
+      "path": "../entretenimento-streaming-aggregator"
+    },
+
+    // ══════════════════════════════════════════════
+    // 💾 ECOSSISTEMA 8 — NAS (Raspberry Pi 5 8GB)
+    // ══════════════════════════════════════════════
+    {
+      "name": "💾 nas-brain",
+      "path": "../nas-brain"
+    },
+    {
+      "name": "💾 nas-file-sync",
+      "path": "../nas-file-sync"
+    },
+    {
+      "name": "💾 nas-photo-backup",
+      "path": "../nas-photo-backup"
+    },
+    {
+      "name": "💾 nas-object-storage",
+      "path": "../nas-object-storage"
+    },
+    {
+      "name": "💾 nas-deduplication",
+      "path": "../nas-deduplication"
+    },
+    {
+      "name": "💾 nas-smb-server",
+      "path": "../nas-smb-server"
+    },
+    {
+      "name": "💾 nas-backup-manager",
+      "path": "../nas-backup-manager"
+    },
+    {
+      "name": "💾 nas-media-indexer",
+      "path": "../nas-media-indexer"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.git": true
+    },
+    "workbench.editor.labelFormat": "short",
+    "explorer.sortOrder": "default"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-azuretools.vscode-docker",
+      "redhat.vscode-yaml",
+      "bierner.markdown-mermaid",
+      "ms-vscode-remote.remote-ssh",
+      "ms-python.python",
+      "rust-lang.rust-analyzer"
+    ]
+  }
+}
