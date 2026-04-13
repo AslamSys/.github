@@ -95,6 +95,12 @@
       "path": "../mordomo-people"
     },
 
+    // ── Vault (Credenciais) ──
+    {
+      "name": "🔑 mordomo-vault",
+      "path": "../mordomo-vault"
+    },
+
     // ── Finanças ──
     {
       "name": "💳 mordomo-financas-pix",
