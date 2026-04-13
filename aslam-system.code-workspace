@@ -142,31 +142,15 @@
     },
 
     // ══════════════════════════════════════════════
-    // 💳 ECOSSISTEMA 5 — PAGAMENTOS (Raspberry Pi 5 4GB)
+    // 💳 ECOSSISTEMA 5 — FINANÇAS (Raspberry Pi 5 4GB)
     // ══════════════════════════════════════════════
     {
-      "name": "💳 pagamentos-brain",
-      "path": "../pagamentos-brain"
-    },
-    {
-      "name": "💳 pagamentos-pix-gateway",
+      "name": "💳 financas-pix",
       "path": "../pagamentos-pix-gateway"
     },
     {
-      "name": "💳 pagamentos-open-banking",
-      "path": "../pagamentos-open-banking"
-    },
-    {
-      "name": "💳 pagamentos-fraud-detector",
-      "path": "../pagamentos-fraud-detector"
-    },
-    {
-      "name": "💳 pagamentos-invoice-generator",
-      "path": "../pagamentos-invoice-generator"
-    },
-    {
-      "name": "💳 pagamentos-wallet-integrator",
-      "path": "../pagamentos-wallet-integrator"
+      "name": "💳 financas-contas",
+      "path": "../financas-contas"
     },
 
     // ══════════════════════════════════════════════
