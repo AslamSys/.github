@@ -89,6 +89,22 @@
       "path": "../mordomo-openclaw-agent"
     },
 
+    // ── Pessoas (Identity Store) ──
+    {
+      "name": "👤 mordomo-people",
+      "path": "../mordomo-people"
+    },
+
+    // ── Finanças ──
+    {
+      "name": "💳 mordomo-financas-pix",
+      "path": "../pagamentos-pix-gateway"
+    },
+    {
+      "name": "💳 mordomo-financas-contas",
+      "path": "../financas-contas"
+    },
+
     // ══════════════════════════════════════════════
     // 📱 ECOSSISTEMA 2 — IOT (Raspberry Pi 3B+ 1GB)
     // ══════════════════════════════════════════════
@@ -142,20 +158,7 @@
     },
 
     // ══════════════════════════════════════════════
-    // 💳 ECOSSISTEMA 5 — FINANÇAS (Raspberry Pi 5 4GB)
-    // ══════════════════════════════════════════════
-    {
-      "name": "💳 financas-pix",
-      "path": "../pagamentos-pix-gateway"
-    },
-    {
-      "name": "💳 financas-contas",
-      "path": "../financas-contas"
-    },
-
-    // ══════════════════════════════════════════════
-    // 📈 ECOSSISTEMA 6 — INVESTIMENTOS (Raspberry Pi 5 16GB)
-    // ══════════════════════════════════════════════
+    // � ECOSSISTEMA 5 — INVESTIMENTOS (Raspberry Pi 5 16GB)    // ══════════════════════════════════════════════    // ══════════════════════════════════════════════
     {
       "name": "📈 investimentos-brain",
       "path": "../investimentos-brain"
