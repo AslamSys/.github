@@ -93,20 +93,20 @@
     // 📱 ECOSSISTEMA 2 — IOT (Raspberry Pi 3B+ 1GB)
     // ══════════════════════════════════════════════
     {
-      "name": "📱 iot-orchestrator",
+      "name": "📱 mordomo-iot-orchestrator",
       "path": "../mordomo-iot-orchestrator"
     },
     {
-      "name": "📱 iot-mqtt-broker",
+      "name": "📱 mordomo-iot-mqtt-broker",
       "path": "../mordomo-iot-mqtt-broker"
     },
     {
-      "name": "📱 iot-state-cache",
+      "name": "📱 mordomo-iot-state-cache",
       "path": "../mordomo-iot-state-cache"
     },
     {
-      "name": "📺 iot-tv-connector",
-      "path": "../iot-tv-connector"
+      "name": "📺 mordomo-iot-tv-connector",
+      "path": "../mordomo-iot-tv-connector"
     },
 
     // ══════════════════════════════════════════════
