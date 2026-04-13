@@ -93,16 +93,20 @@
     // 📱 ECOSSISTEMA 2 — IOT (Raspberry Pi 3B+ 1GB)
     // ══════════════════════════════════════════════
     {
-      "name": "📱 mordomo-iot-orchestrator",
+      "name": "📱 iot-orchestrator",
       "path": "../mordomo-iot-orchestrator"
     },
     {
-      "name": "📱 mordomo-iot-mqtt-broker",
+      "name": "📱 iot-mqtt-broker",
       "path": "../mordomo-iot-mqtt-broker"
     },
     {
-      "name": "📱 mordomo-iot-state-cache",
+      "name": "📱 iot-state-cache",
       "path": "../mordomo-iot-state-cache"
+    },
+    {
+      "name": "📺 iot-tv-connector",
+      "path": "../iot-tv-connector"
     },
 
     // ══════════════════════════════════════════════
@@ -198,39 +202,15 @@
     },
 
     // ══════════════════════════════════════════════
-    // 🎬 ECOSSISTEMA 7 — ENTRETENIMENTO (Raspberry Pi 5 8GB)
-    // ══════════════════════════════════════════════
-    {
-      "name": "🎬 entretenimento-brain",
-      "path": "../entretenimento-brain"
-    },
-    {
-      "name": "🎬 entretenimento-media-server",
-      "path": "../entretenimento-media-server"
-    },
-    {
-      "name": "🎬 entretenimento-radarr-movies",
-      "path": "../entretenimento-radarr-movies"
-    },
-    {
-      "name": "🎬 entretenimento-sonarr-series",
-      "path": "../entretenimento-sonarr-series"
-    },
-    {
-      "name": "🎬 entretenimento-bazarr-subtitles",
-      "path": "../entretenimento-bazarr-subtitles"
-    },
-    {
-      "name": "🎬 entretenimento-streaming-aggregator",
-      "path": "../entretenimento-streaming-aggregator"
-    },
-
-    // ══════════════════════════════════════════════
-    // 💾 ECOSSISTEMA 8 — NAS (Raspberry Pi 5 8GB)
+    // 💾 ECOSSISTEMA 3 — NAS (Raspberry Pi 5 8GB)
     // ══════════════════════════════════════════════
     {
       "name": "💾 nas-brain",
       "path": "../nas-brain"
+    },
+    {
+      "name": "💾 nas-media-server",
+      "path": "../entretenimento-media-server"
     },
     {
       "name": "💾 nas-file-sync",
