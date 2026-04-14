@@ -61,7 +61,7 @@ Isso abre **todos os 55 repositórios** organizados por ecossistema no VS Code �
 └────┘ └─────┘ └──────────┘ └────────┘ └────────┘ └───────┘
 ```
 
-**Totais:** 5 hardwares · 50 repos · 3 LLMs locais + Cloud ilimitada · ~49GB RAM
+**Totais:** 4 hardwares · 50 repos · 3 LLMs locais + Cloud ilimitada · ~45GB RAM
 
 ---
 
@@ -79,7 +79,7 @@ O arquivo `aslam-system.code-workspace` organiza tudo assim:
 | 🐙 | Mordomo — OpenClaw | Orange Pi 5 Ultra 16GB | 1 | openclaw-agent |
 | 🔑 | Mordomo — Identity/Vault | Orange Pi 5 Ultra 16GB | 2 | people, vault |
 | 💳 | Mordomo — Finanças | Orange Pi 5 Ultra 16GB | 2 | financas-pix, financas-contas |
-| 📱 | IoT | RPi 3B+ 1GB | 4 | iot-orchestrator, iot-mqtt-broker, iot-state-cache, iot-tv-connector |
+| 📱 | IoT | Orange Pi 5 Ultra 16GB (integrado ao Mordomo) | 4 | mordomo-iot-orchestrator, mordomo-iot-mqtt-broker, mordomo-iot-state-cache, mordomo-iot-tv-connector |
 | 🛡️ | Segurança | Jetson Orin Nano 8GB | 7 | brain, cameras, yolo, face-rec, events, alerts, recorder |
 | 📈 | Investimentos | RPi 5 16GB | 7 | brain, trading, tech-analysis, sentiment, betting, ml, portfolio |
 | 💾 | NAS | Hardware NAS | 9 | brain, file-sync, photo-backup, object-storage, dedup, smb, backup, indexer, media-server |

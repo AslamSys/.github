@@ -112,7 +112,7 @@
     },
 
     // ══════════════════════════════════════════════
-    // 📱 ECOSSISTEMA 2 — IOT (Raspberry Pi 3B+ 1GB)
+    // 📱 ECOSSISTEMA IOT — Integrado ao Mordomo (Orange Pi 5 Ultra 16GB)
     // ══════════════════════════════════════════════
     {
       "name": "📱 mordomo-iot-orchestrator",
