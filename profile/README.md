@@ -95,7 +95,7 @@
 ### Repositórios da Organização
 
 - 📚 [_system (Orchestration)](https://github.com/AslamSys/_system) — Docker-compose + Documentação central
-- 🗂️ [Todos os repositórios](https://github.com/orgs/AslamSys/repositories) — 55 repos (containers individuais)
+- 🗂️ [Todos os repositórios](https://github.com/orgs/AslamSys/repositories) — 50 repos
 
 ### Documentos complementares
 
@@ -107,29 +107,31 @@
 
 ## 🎯 Arquitetura Geral do Sistema
 
-**1 Sistema Central (Aslam Voice Assistant) + 6 Módulos Especializados = 7 Hardwares ARM64**
+**1 Sistema Central (Mordomo) + 4 Módulos Especializados = 5 Hardwares ARM64**
 
 ```
                     ┌─────────────────────────────────────┐
                     │   NATS Message Broker (Central)     │
-                    │   Orange Pi 5 16GB - Infraestrutura │
+                    │   Orange Pi 5 Ultra 16GB            │
                     └───────────┬─────────────────────────┘
                                 │
         ┌───────────────────────┼────────────────────────────┐
         │                       │                            │
 ┌───────▼────────┐   ┌─────────▼────────┐   ┌──────────▼───────────┐
-│ ASLAM BRAIN    │   │ INFRAESTRUTURA   │   │   MONITORAMENTO      │
-│ Orange Pi 5    │   │ Orange Pi 5 16GB │   │  Orange Pi 5 16GB    │
-│  16GB          │   │  (Ecossistema)   │   │   (Ecossistema)      │
+│ MORDOMO BRAIN  │   │ INFRAESTRUTURA   │   │   MONITORAMENTO      │
+│ Orange Pi 5    │   │ Orange Pi 5      │   │  Orange Pi 5 Ultra   │
+│  Ultra 16GB    │   │  Ultra 16GB      │   │   16GB               │
 ├────────────────┤   ├──────────────────┤   ├──────────────────────┤
-│ 16 containers: │   │ 5 containers:    │   │ 4 containers:        │
+│ 21 repos:      │   │ 5 containers:    │   │ 4 containers:        │
 │ - STT (6)      │   │ - NATS           │   │ - Prometheus         │
-│ - TTS (2)      │   │ - Consul         │   │ - Loki               │
-│ - CORE (4)     │   │ - Qdrant         │   │ - Grafana            │
-│ - OPENCLAW (4) │   │ - PostgreSQL     │   │ - Promtail           │
-│               │   │ - Aslam App      │   │                      │
-│ LLM: Cloud +   │   │                  │   │ TOTAL: 25 containers │
-│   Qwen 1.5B    │   │                  │   │ RAM: ~6.0GB (63% livre)│
+│ - TTS (3)      │   │ - Consul         │   │ - Loki               │
+│ - CORE (7)     │   │ - Qdrant         │   │ - Grafana            │
+│ - OPENCLAW (1) │   │ - PostgreSQL     │   │ - Promtail           │
+│ - People/Vault │   │ - Mordomo App    │   │                      │
+│ - Financas (2) │   │                  │   │                      │
+│ LLM: Cloud     │   │                  │   │                      │
+│  (Gemini/GPT/  │   │                  │   │                      │
+│   Claude)      │   │                  │   │                      │
 └────────┬───────┘   └──────────────────┘   └──────────────────────┘
          │
          │ NATS pub/sub
@@ -137,25 +139,14 @@
     ┌────┴────────────────────────────────────┐
     │                                         │
 ┌───▼──────────┐ ┌────────────┐ ┌────────────┐ ┌──────────────┐
-│ SEGURANÇA    │ │ PAGAMENTOS │ │INVESTIMENTOS│ │ENTRETENIMENTO│
-│ Jetson       │ │ RPi 5 4GB  │ │ RPi 5 16GB │ │ RPi 5 8GB    │
-│ Orin Nano    │ │            │ │            │ │              │
-│ 7 cont.      │ │ 6 cont.    │ │ 7 cont.    │ │ 6 cont.      │
-│ LLM: Qwen    │ │ LLM: Qwen  │ │ LLM: Qwen  │ │ LLM: Qwen    │
-│    3B Vis.   │ │    1.5B    │ │    3B      │ │    1.5B      │
+│ SEGURANÇA    │ │    IOT     │ │INVESTIMENTOS│ │     NAS      │
+│ Jetson       │ │ RPi 3B+    │ │ RPi 5 16GB │ │   hardware   │
+│ Orin Nano    │ │   1GB      │ │            │ │  dedicado    │
+│ 7 repos      │ │ 4 repos    │ │ 7 repos    │ │ 9 repos      │
+│ LLM: Qwen    │ │ SEM LLM    │ │ LLM: Qwen  │ │ LLM: Qwen    │
+│    3B Vis.   │ │ (MQTT)     │ │    3B      │ │    1.5B      │
 └──────────────┘ └────────────┘ └────────────┘ └──────────────┘
-
-┌──────────────┐ ┌────────────┐
-│    NAS       │ │    IOT     │
-│ RPi 5 8GB    │ │ RPi 3B+    │
-│              │ │            │
-│ 8 cont.      │ │ 4 cont.    │
-│ LLM: Qwen    │ │ SEM LLM    │
-│    1.5B      │ │ (MQTT)     │
-└──────────────┘ └────────────┘
 ```
-
-> _OpenClaw Agent (WhatsApp/Telegram/Discord/Email/SMS + RPA Browser Control) integrado ao Mordomo com LLM próprio — economia de $230 em hardware_
 
 ---
 
@@ -163,64 +154,34 @@
 
 | # | Hardware | Módulo | LLM | Preço | Função Principal |
 |---|----------|--------|-----|-------|------------------|
-| 1 | Orange Pi 5 16GB | **Aslam Central + OpenClaw** | Cloud (fallback Qwen 1.5B) + Gemini Flash | $130 | Assistente de voz + Comunicação + RPA (25 containers: 16 Aslam + 5 Infra + 4 Monitoramento) |
-| 2 | Jetson Orin Nano | Segurança | Qwen 3B Vision | $249 | Câmeras, YOLOv8, reconhecimento facial |
-| 3 | Raspberry Pi 3B+ | IoT | **SEM LLM** | $83 | ESP32 DIY, Access Point Wi-Fi, MQTT, BLE presence |
-| 4 | Raspberry Pi 5 4GB | Pagamentos | Qwen 1.5B | $60 | PIX, Open Banking, antifraud |
-| 5 | Raspberry Pi 5 16GB | Investimentos | Qwen 3B | $120 | Trading, apostas, ML predição |
-| 6 | Raspberry Pi 5 8GB | Entretenimento | Qwen 1.5B | $80 | Jellyfin, downloads, streaming |
-| 7 | Raspberry Pi 5 8GB | NAS | Qwen 1.5B | $355 | Storage, backup, deduplicação |
+| 1 | Orange Pi 5 Ultra 16GB | **Mordomo Central** | Cloud-primary (Gemini/GPT-4o-mini/Claude) | $130 | Assistente de voz + OpenClaw RPA + Finanças (21 repos) |
+| 2 | Jetson Orin Nano 8GB | Segurança | Qwen 3B Vision (local) | $249 | Câmeras, YOLOv8, reconhecimento facial |
+| 3 | Raspberry Pi 3B+ 1GB | IoT | **SEM LLM** | $35 | ESP32 DIY, MQTT, BLE presence |
+| 4 | Raspberry Pi 5 16GB | Investimentos | Qwen 3B (local) | $120 | Trading, apostas, ML predição |
+| 5 | Hardware NAS dedicado | NAS | Qwen 1.5B (local) | — | Storage, backup, Jellyfin |
 
-> _Comunicação e RPA foram integrados ao Aslam Central via OpenClaw Agent (economia de $230)_
+> _Pagamentos e Entretenimento foram absorvidos pelo Mordomo Central e NAS respectivamente — sem hardware extra necessário_
 
 ### Custo-Benefício de Cada Plataforma
 
 | Hardware | Preço | Quando Usar |
 |----------|-------|-------------|
-| **Orange Pi 5 16GB** | $130 | NPU necessária (Mordomo + OpenClaw) — RAM extra para containers |
-| **Raspberry Pi 5 8GB** | $80 | Maioria dos módulos (melhor suporte comunitário) |
-| **Jetson Orin Nano** | $249 | Visão AI intensiva (Segurança) — 1024 CUDA cores |
-| **Raspberry Pi 3B+** | $35 | IoT sem LLM (baixíssima latência) |
-
-> Orange Pi vs RPi 5: Diferença de $30, mas RPi tem ecossistema gigante + disponibilidade global
+| **Orange Pi 5 Ultra 16GB** | $130 | NPU necessária (Mordomo Central) — RAM para 21 repos + infra |
+| **Jetson Orin Nano 8GB** | $249 | Visão AI intensiva (Segurança) — 1024 CUDA cores |
+| **Raspberry Pi 5 16GB** | $120 | Módulos de ML pesado (Investimentos) |
+| **Raspberry Pi 3B+** | $35 | IoT sem LLM (baixíssima latência, MQTT) |
 
 ---
 
 ## 📁 Estrutura do Repositório
 
 ```
-mordomo-system-estudos-ia/
-├── README.md                              # ← ESTE DOCUMENTO (visão consolidada)
-├── VISAO_MACRO_COMPLETA.md                # Análise técnica detalhada
-├── MARKET_BENCHMARK.md                    # Benchmark competitivo (60+ projetos)
-├── ANALISE_LIVEKIT_vs_MORDOMO.md          # Comparação LiveKit Agents
-│
-└── hardware/
-    ├── README.md                          # Visão geral + análise custo-benefício
-    │
-    ├── mordomo - (orange-pi-5-16gb)/      # CENTRAL — 25 containers
-    │   └── ecossistemas/
-    │       ├── mordomo/                   # 16 containers (STT + TTS + Core + OpenClaw)
-    │       ├── infraestrutura/            # 5 containers (NATS, Consul, Qdrant, PG, App)
-    │       └── monitoramento/             # 4 containers (Prometheus, Loki, Grafana, Promtail)
-    │
-    ├── seguranca - (jetson-orin-nano)/    # MÓDULO 1 — 7 containers + Vision AI
-    │   └── ecossistemas/seguranca/
-    │
-    ├── iot - (raspberry-pi-3b)/           # MÓDULO 2 — 4 containers (SEM LLM)
-    │   └── ecossistemas/iot/
-    │
-    ├── pagamentos - (raspberry-pi-5-4gb)/ # MÓDULO 3 — 6 containers
-    │   └── ecossistemas/pagamentos/
-    │
-    ├── investimentos - (raspberry-pi-5-16gb)/ # MÓDULO 4 — 7 containers
-    │   └── ecossistemas/investimentos/
-    │
-    ├── entretenimento - (raspberry-pi-5-8gb)/ # MÓDULO 5 — 6 containers
-    │   └── ecossistemas/entretenimento/
-    │
-    └── nas - (raspberry-pi-5-8gb)/        # MÓDULO 6 — 8 containers
-        └── ecossistemas/nas/
+hardware/
+├── mordomo - (orange-pi-5-ultra-16gb)/    # CENTRAL — 21 repos
+├── seguranca - (jetson-orin-nano)/        # MÓDULO 1 — 7 repos + Vision AI
+├── iot - (raspberry-pi-3b)/               # MÓDULO 2 — 4 repos (SEM LLM)
+├── investimentos - (raspberry-pi-5-16gb)/ # MÓDULO 3 — 7 repos + LLM
+└── nas - (hardware-dedicado)/             # MÓDULO 4 — 9 repos + LLM + Jellyfin
 ```
 
 ### Organização dos Repositórios (GitHub)
@@ -260,11 +221,11 @@ AslamSys/
 
 ---
 
-## 🧠 Ecossistema 1 — Mordomo Central (Orange Pi 5 16GB)
+## 🧠 Ecossistema 1 — Mordomo Central (Orange Pi 5 Ultra 16GB)
 
-Sistema central de assistente de voz com processamento completo de áudio, reconhecimento, LLM, síntese de voz, **OpenClaw Agent** (comunicação multi-canal + RPA browser com LLM próprio).
+Sistema central de assistente de voz com processamento completo de áudio, reconhecimento, LLM cloud-primary, síntese de voz, **OpenClaw Agent** (comunicação multi-canal + RPA browser), gestão de identidade, vault de credenciais e módulos financeiros.
 
-**Containers: 25 total** = 16 aplicação + 5 infraestrutura + 4 monitoramento
+**21 repos Mordomo** = 6 STT + 3 Output + 7 Core + 1 OpenClaw + 2 Identity + 2 Financas
 
 ### 🎤 STT — Speech-to-Text (6 containers)
 
