@@ -53,30 +53,29 @@
 
 | Métrica | Valor |
 |---------|-------|
-| **Hardwares** | 5 dispositivos ARM64 independentes |
+| **Hardwares** | 4 dispositivos ARM64 independentes |
 | **LLM Mordomo** | Cloud-primary (Gemini, GPT-4o-mini, Claude, Groq) — Jetson Orin futuro para local |
 | **Repos** | 50 repositórios individuais |
 | **LLMs Ativas** | 3 locais (Segurança Vision, Investimentos, NAS) + Cloud ilimitada (Mordomo) |
 | **Comunicação** | NATS pub/sub (<1ms latência) |
-| **RAM Total** | ~49GB (16+1+8+16+8) |
-| **CPU Total** | ~28 cores ARM64 |
+| **RAM Total** | ~45GB (16+8+16+NAS) |
+| **CPU Total** | ~20 cores ARM64 |
 | **NPU/GPU** | 6 TOPS NPU (Orange Pi) + 1024 CUDA cores (Jetson) |
 | **Latência Voz→Ação** | < 500ms (target < 400ms) |
-| **Latência IoT** | < 150ms (ESP32 via Access Point) |
+| **Latência IoT** | < 150ms (ESP32 via MQTT local) |
 | **Throughput NATS** | 10.000+ msg/s |
-| **Economia obtida** | $230 (integração OpenClaw) + $240 (ESP32 DIY vs Zigbee) |
+| **Economia obtida** | $230 (integração OpenClaw) + $35 (IoT integrado ao Mordomo, RPi 3B+ eliminado) |
 
 ### Status de Implementação
 
 | Módulo | Status | Repos | Hardware |
 |--------|--------|-------|----------|
-| **Mordomo Central** | 📋 Documentado | 21 (STT+TTS+Core+OpenClaw+Vault+People+Financas) | Orange Pi 5 Ultra 16GB |
-| **IoT** | 📋 Documentado | 4 | RPi 3B+ 1GB |
+| **Mordomo Central + IoT** | 📋 Documentado | 25 (STT+TTS+Core+OpenClaw+Vault+People+Financas+IoT) | Orange Pi 5 Ultra 16GB |
 | **Segurança** | 📋 Documentado | 7 | Jetson Orin Nano 8GB |
 | **Investimentos** | 📋 Documentado | 7 | RPi 5 16GB |
 | **NAS** | 📋 Documentado | 9 (inclui Jellyfin) | Hardware NAS |
 
-> _Comunicação e RPA foram integrados ao hardware Mordomo usando OpenClaw (economia de $230)_
+> _IoT, Comunicação (OpenClaw) e Finanças foram integrados ao hardware Mordomo (Orange Pi 5 Ultra 16GB)_
 
 ---
 
