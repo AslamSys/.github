@@ -461,7 +461,7 @@ Backup automático de fotos do iPhone, armazenamento centralizado, deduplicaçã
 **Formato:** `{modulo}.{recurso}.{acao}`
 
 ```yaml
-# ── Mordomo ──
+# ── Mordomo (Orange Pi 5 Ultra 16GB) ──
 mordomo.speech.transcribed
 mordomo.brain.response_generated
 mordomo.conversation.message_received
@@ -479,37 +479,32 @@ openclaw.response.{request_id}
 openclaw.notification
 openclaw.alert.{priority}
 
-# ── IoT ──
-iot.device.control
-iot.device.state_changed
-iot.device.discovered
-iot.scene.activate
+# ── IoT (integrado ao Mordomo) ──
+mordomo.iot.device.control
+mordomo.iot.device.state_changed
+mordomo.iot.device.discovered
+mordomo.iot.scene.activate
 
-# ── Pagamentos ──
-pagamentos.pix.send
-pagamentos.pix.received
-pagamentos.boleto.generate
-pagamentos.card.charge
+# ── Finanças (integrado ao Mordomo) ──
+mordomo.financas.pix.send
+mordomo.financas.pix.received
+mordomo.financas.contas.balance
 
-# ── Investimentos ──
+# ── Investimentos (RPi 5 16GB) ──
 investimentos.order.create
 investimentos.order.filled
 investimentos.portfolio.balance
 
-# ── Segurança ──
+# ── Segurança (Jetson Orin Nano) ──
 seguranca.alert.person
 seguranca.alert.intrusion
 seguranca.camera.snapshot
 
-# ── Entretenimento ──
-entretenimento.play.movie
-entretenimento.play.music
-entretenimento.download.complete
-
-# ── NAS ──
+# ── NAS (hardware dedicado) ──
 nas.file.uploaded
 nas.photo.backed_up
 nas.backup.completed
+nas.media.indexed
 ```
 
 ### Exemplo de Integração: Alerta de Segurança
@@ -531,7 +526,7 @@ nas.backup.completed
    ↓
    Dispatcher despacha 3 ações paralelas:
 
-   a) NATS → iot.device.control (acionar sirene)
+   a) NATS → mordomo.iot.device.control (acionar sirene)
    b) NATS → mordomo.openclaw.gateway.send (enviar foto pro dono)
    c) NATS → seguranca.recording.start (gravar vídeo HD)
 
