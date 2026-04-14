@@ -2,15 +2,15 @@
 
 <div align="center">
 
-**Sistema distribuído de IA com assistente de voz inteligente e módulos especializados executando em 7 hardwares ARM64 dedicados, cada um com LLM própria para processamento assíncrono.**
+**Sistema distribuído de IA com assistente de voz inteligente e módulos especializados executando em 5 hardwares ARM64 dedicados.**
 
-> *Aslam: Assistente de voz com pipeline STT→LLM→TTS + 6 módulos especializados*
-> *(Segurança, IoT, Pagamentos, Investimentos, Entretenimento, NAS)*
+> *Aslam (Mordomo): Assistente de voz com pipeline STT→LLM(Cloud)→TTS + 4 módulos especializados*
+> *(Segurança, IoT, Investimentos, NAS)*
 
 [![Org](https://img.shields.io/badge/GitHub-AslamSys-181717?logo=github)](https://github.com/AslamSys)
-[![Repos](https://img.shields.io/badge/Containers-55_repos-blue)](https://github.com/orgs/AslamSys/repositories)
+[![Repos](https://img.shields.io/badge/Repos-50-blue)](https://github.com/orgs/AslamSys/repositories)
 [![License](https://img.shields.io/badge/License-MIT-green)](#-licença)
-[![Status](https://img.shields.io/badge/Fase-1_Concluída-brightgreen)](#-roadmap-de-implementação)
+[![Status](https://img.shields.io/badge/Fase-Documentação-yellow)](#-roadmap-de-implementação)
 
 </div>
 
@@ -53,16 +53,14 @@
 
 | Métrica | Valor |
 |---------|-------|
-| **Hardwares** | 7 dispositivos ARM64 independentes |
-| **Investimento Total** | $1.779 (hardware $1.077 + armazenamento $462 + rede $40 + periféricos $200) |
-| **Containers Totais** | 71+ (25 Mordomo + 46 módulos especializados) |
-| **LLMs Independentes** | 6 (1 central + 5 módulos; IoT sem LLM; Comunicação/RPA integrados) |
-| **Consumo Energético** | 47-75W (≈ 438 kWh/ano ≈ R$350/ano) |
+| **Hardwares** | 5 dispositivos ARM64 independentes |
+| **LLM Mordomo** | Cloud-primary (Gemini, GPT-4o-mini, Claude, Groq) — Jetson Orin futuro para local |
+| **Repos** | 50 repositórios individuais |
+| **LLMs Ativas** | 3 locais (Segurança Vision, Investimentos, NAS) + Cloud ilimitada (Mordomo) |
 | **Comunicação** | NATS pub/sub (<1ms latência) |
-| **Armazenamento** | 12TB+ (HDDs + SSDs + MicroSDs) |
-| **RAM Total** | 61GB (16+8+1+4+16+8+8) |
-| **CPU Total** | 40 cores (diversos ARM64) |
-| **NPU/GPU** | 6 TOPS (NPU) + 1024 CUDA cores |
+| **RAM Total** | ~49GB (16+1+8+16+8) |
+| **CPU Total** | ~28 cores ARM64 |
+| **NPU/GPU** | 6 TOPS NPU (Orange Pi) + 1024 CUDA cores (Jetson) |
 | **Latência Voz→Ação** | < 500ms (target < 400ms) |
 | **Latência IoT** | < 150ms (ESP32 via Access Point) |
 | **Throughput NATS** | 10.000+ msg/s |
@@ -70,15 +68,13 @@
 
 ### Status de Implementação
 
-| Módulo | Status | Containers | Auditado |
-|--------|--------|------------|----------|
-| **Mordomo Central + OpenClaw** | ✅ Implementado | 25 (16+5+4) | ✅ Completo |
-| **IoT** | ✅ Implementado | 4 | ✅ Completo |
-| Segurança | 📋 Especificado | 7 | ❌ Pendente auditoria |
-| Pagamentos | 📋 Especificado | 6 | ❌ Pendente auditoria |
-| Investimentos | 📋 Especificado | 7 | ❌ Pendente auditoria |
-| Entretenimento | 📋 Especificado | 6 | ❌ Pendente auditoria |
-| NAS | 📋 Especificado | 8 | ❌ Pendente auditoria |
+| Módulo | Status | Repos | Hardware |
+|--------|--------|-------|----------|
+| **Mordomo Central** | 📋 Documentado | 21 (STT+TTS+Core+OpenClaw+Vault+People+Financas) | Orange Pi 5 Ultra 16GB |
+| **IoT** | 📋 Documentado | 4 | RPi 3B+ 1GB |
+| **Segurança** | 📋 Documentado | 7 | Jetson Orin Nano 8GB |
+| **Investimentos** | 📋 Documentado | 7 | RPi 5 16GB |
+| **NAS** | 📋 Documentado | 9 (inclui Jellyfin) | Hardware NAS |
 
 > _Comunicação e RPA foram integrados ao hardware Mordomo usando OpenClaw (economia de $230)_
 
@@ -88,15 +84,13 @@
 
 ### Documentação por Hardware
 
-| Hardware | Link | Containers |
-|----------|------|------------|
-| 🏠 Mordomo (Orange Pi 5 16GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/mordomo%20-%20(orange-pi-5-16gb)/README.md) | 25 containers |
-| 🔒 Segurança (Jetson Orin Nano) | [README](https://github.com/AslamSys/_system/blob/main/hardware/seguranca%20-%20(jetson-orin-nano)/README.md) | 7 containers |
-| 🏢 IoT (Raspberry Pi 3B+) | [README](https://github.com/AslamSys/_system/blob/main/hardware/iot%20-%20(raspberry-pi-3b)/README.md) | 4 containers |
-| 💰 Pagamentos (RPi 5 4GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos%20-%20(raspberry-pi-5-4gb)/README.md) | 6 containers |
-| 📈 Investimentos (RPi 5 16GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/investimentos%20-%20(raspberry-pi-5-16gb)/README.md) | 7 containers |
-| 🎬 Entretenimento (RPi 5 8GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/entretenimento%20-%20(raspberry-pi-5-8gb)/README.md) | 6 containers |
-| 💾 NAS (RPi 5 8GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/nas%20-%20(raspberry-pi-5-8gb)/README.md) | 8 containers |
+| Hardware | Link | Repos |
+|----------|------|-------|
+| 🏠 Mordomo (Orange Pi 5 Ultra 16GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/mordomo%20-%20(orange-pi-5-16gb)/README.md) | 21 repos |
+| 🔒 Segurança (Jetson Orin Nano 8GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/seguranca%20-%20(jetson-orin-nano)/README.md) | 7 repos |
+| 📱 IoT (Raspberry Pi 3B+ 1GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/iot%20-%20(raspberry-pi-3b)/README.md) | 4 repos |
+| 📈 Investimentos (RPi 5 16GB) | [README](https://github.com/AslamSys/_system/blob/main/hardware/investimentos%20-%20(raspberry-pi-5-16gb)/README.md) | 7 repos |
+| 💾 NAS (hardware dedicado) | [README](https://github.com/AslamSys/_system/blob/main/hardware/nas%20-%20(raspberry-pi-5-8gb)/README.md) | 9 repos |
 
 ### Repositórios da Organização
 
@@ -236,17 +230,32 @@ Cada container vive em seu próprio repositório dentro da [organização AslamS
 ```
 AslamSys/
 ├── _system                         # Orchestration central (docker-compose + docs)
-├── aslam-*                         # 16 containers (Orange Pi 5 16GB)
-│   ├── aslam-orchestrator
-│   ├── aslam-brain
-│   ├── aslam-whisper-asr
-│   └── ...
-├── seguranca-*                     # 7 containers (Jetson Orin Nano)
-├── iot-*                           # 3 containers (Raspberry Pi 3B)
-├── pagamentos-*                    # 6 containers (RPi 5 4GB)
-├── investimentos-*                 # 7 containers (RPi 5 16GB)
-├── entretenimento-*                # 6 containers (RPi 5 8GB)
-└── nas-*                           # 8 containers (RPi 5 8GB)
+├── mordomo-*                       # 21 repos (Orange Pi 5 Ultra 16GB)
+│   ├── mordomo-audio-capture-vad
+│   ├── mordomo-wake-word-detector
+│   ├── mordomo-whisper-asr
+│   ├── mordomo-speaker-verification
+│   ├── mordomo-speaker-id-diarization
+│   ├── mordomo-source-separation
+│   ├── mordomo-tts-engine
+│   ├── mordomo-audio-bridge
+│   ├── mordomo-visual-feedback
+│   ├── mordomo-orchestrator
+│   ├── mordomo-brain
+│   ├── mordomo-system-watchdog
+│   ├── mordomo-skills-runner
+│   ├── mordomo-core-gateway
+│   ├── mordomo-action-dispatcher
+│   ├── mordomo-dashboard-ui
+│   ├── mordomo-openclaw-agent
+│   ├── mordomo-people
+│   ├── mordomo-vault
+│   ├── mordomo-financas-pix
+│   └── mordomo-financas-contas
+├── mordomo-iot-*                   # 4 repos (Raspberry Pi 3B+)
+├── seguranca-*                     # 7 repos (Jetson Orin Nano 8GB)
+├── investimentos-*                 # 7 repos (RPi 5 16GB)
+└── nas-*                           # 9 repos (NAS hardware)
 ```
 
 ---
@@ -275,15 +284,17 @@ Sistema central de assistente de voz com processamento completo de áudio, recon
 | 7 | `tts-engine` | Síntese de voz | Piper (local) ou Azure TTS (cloud) | 80-150ms | 80MB RAM, 10-20% CPU |
 | 8 | `audio-bridge` | WebRTC ↔ NATS streaming | Rust, zero-copy bidirecional | — | 15MB RAM, <1% CPU |
 
-### 🧠 CORE — Orquestração + Brain (5 containers)
+### 🧠 CORE — Orquestração + Brain (7 containers)
 
 | # | Container | Função | Recursos |
 |---|-----------|--------|----------|
-| 9 | `mordomo-orchestrator` | Unificação de session + LLM service + action dispatcher + event system + semantic cache (FAISS) | 2.5GB RAM, 120% CPU |
-| 10 | `system-watchdog` | Proteção térmica + DEFCON levels (5→1) + auto-shutdown >85°C | 100MB RAM, 15% CPU |
-| 11 | `mordomo-brain` | RAG + Raciocínio avançado multi-step (Qdrant) | 500MB RAM, 30% CPU |
+| 9 | `mordomo-orchestrator` | Unificação de session + intent routing + event system + semantic cache (FAISS) | 350MB RAM, 40% CPU |
+| 10 | `system-watchdog` | Proteção térmica + DEFCON levels (5→1) + auto-shutdown >85°C | 20MB RAM, 5% CPU |
+| 11 | `mordomo-brain` | LLM Cloud-primary (Gemini/GPT-4o-mini/Claude) + RAG Qdrant | ~200MB RAM, <5% CPU idle |
 | 12 | `skills-runner` | Python Sandbox para skills dinâmicas (seguro, com limites CPU/RAM) | 300MB RAM, 20% CPU |
 | 13 | `core-gateway` | API Gateway (HTTP/WebSocket + rate limiting + auth) | 150MB RAM, 10% CPU |
+| 14 | `mordomo-people` | Identity store — perfis de moradores, permissões, biometria | 256MB RAM |
+| 15 | `mordomo-vault` | Cofre de credenciais — auth por voz (biométrica) + service tokens | 60MB RAM |
 
 ### 🐙 OPENCLAW AGENT — Comunicação + RPA (1 container, 4 módulos internos)
 
@@ -301,15 +312,15 @@ Sistema central de assistente de voz com processamento completo de áudio, recon
 
 **Canais suportados:** ✅ WhatsApp (Baileys) · ✅ Telegram (grammY) · ✅ Discord (discord.js) · ⏳ Email (IMAP/SMTP) · ⏳ SMS (Twilio)
 
-### 🏗️ Infraestrutura (5 containers)
+### 🔧 Infraestrutura (5 containers)
 
 | # | Container | Função | Recursos |
 |---|-----------|--------|----------|
-| 15 | `nats` | Message broker (pub/sub + request/reply, <1ms latência) | 100-200MB RAM, 10-20% CPU |
-| 16 | `consul` | Service discovery + health checks | 150MB RAM, 15% CPU |
-| 17 | `qdrant` | Vector database para RAG (embeddings de conversas + busca semântica) | 500MB RAM, 30% CPU |
-| 18 | `postgres` | Banco relacional (histórico conversas, usuários, permissões) | 200MB RAM, 20% CPU |
-| 19 | `aslam-app` | Tablet interface (React + WebSocket real-time) | 300MB RAM, 40% CPU |
+| 18 | `nats` | Message broker (pub/sub + request/reply, <1ms latência) | 100-200MB RAM, 10-20% CPU |
+| 19 | `consul` | Service discovery + health checks | 150MB RAM, 15% CPU |
+| 20 | `qdrant` | Vector database para RAG (embeddings de conversas + busca semântica) | 300MB RAM, 20% CPU |
+| 21 | `postgres` | Banco relacional (histórico conversas, usuários, permissões) | 200MB RAM, 20% CPU |
+| 22 | `mordomo-dashboard-ui` | Dashboard UI (React + WebSocket real-time) | 100MB RAM, 10% CPU |
 
 ### 📊 Monitoramento (4 containers)
 
@@ -320,17 +331,15 @@ Sistema central de assistente de voz com processamento completo de áudio, recon
 | 22 | `grafana` | Dashboards de visualização | 250MB RAM, 30% CPU |
 | 23 | `promtail` | Log collector via Docker API | 80MB RAM, 10% CPU |
 
-### 📦 Totais de Recursos (Orange Pi 5 16GB)
+### 📦 Totais de Recursos (Orange Pi 5 Ultra 16GB)
 
 | Recurso | Alocação | Capacidade | Uso |
 |---------|----------|------------|-----|
-| **RAM** | ~6.0GB | 16GB | 38% (63% livre) |
-| **CPU** | ~180-330% | 800% (8 cores) | 23-41% |
-| **Storage** | 17GB containers + 10GB dados | SSD NVMe 256GB | — |
+| **RAM** | ~8.9GB | 16GB | ~56% |
+| **CPU** | <10% idle (sem inferência local) | 800% (8 cores) | baixo |
+| **Storage** | containers + dados | SSD NVMe 256GB | — |
 
-**Breakdown de RAM:** STT 1.38GB · TTS 95MB · CORE 3.55GB · OpenClaw 1.2GB (2.0GB com browser)
-
-**LLM Strategy:** Cloud-first (Claude 3.5 Sonnet, GPT-4o, Gemini 2.0 Flash) via LiteLLM → Fallback Qwen 2.5 1.5B quantized Q4 (500MB RAM)
+**LLM Strategy:** Cloud-primary — Gemini 2.0 Flash (simples), GPT-4o-mini (complexo), Claude 3.5 Haiku (alto risco), Groq/llama-3.3-70b (fallback gratuito). **Sem Ollama no Orange Pi.** LLM local é futuro via Jetson Orin dedicado.
 
 ---
 
@@ -342,10 +351,10 @@ Automação residencial com ESP32 DIY + Access Point Wi-Fi dedicado (**SEM LLM**
 
 | # | Container | Função | Recursos |
 |---|-----------|--------|----------|
-| 1 | `iot-orchestrator` | Traduz NATS → MQTT, recebe comandos do Mordomo | 180MB RAM, 25% CPU |
-| 2 | `mqtt-broker` | Eclipse Mosquitto (broker MQTT local 10.0.0.x, retain messages) | 100MB RAM, 15% CPU |
-| 3 | `iot-state-cache` | Redis — estados em tempo real (<5ms, 50-100 devices ESP32) | 80MB RAM, 10% CPU |
-| 4 | `bluetooth-scanner` | BLE presence detection (smartphones, Mi Band, RSSI proximidade) | 60MB RAM, 12% CPU |
+| 1 | `mordomo-iot-orchestrator` | Traduz NATS → MQTT, recebe comandos do Mordomo | 180MB RAM, 25% CPU |
+| 2 | `mordomo-iot-mqtt-broker` | Eclipse Mosquitto (broker MQTT local 10.0.0.x) | 100MB RAM, 15% CPU |
+| 3 | `mordomo-iot-state-cache` | Redis — estados em tempo real (<5ms, 50-100 devices ESP32) | 80MB RAM, 10% CPU |
+| 4 | `mordomo-iot-tv-connector` | Controle de TV via HDMI-CEC / REST API | 60MB RAM, 8% CPU |
 
 ### Totais de Recursos
 
@@ -414,32 +423,18 @@ Monitorar 4 câmeras com YOLO, reconhecimento facial, análise de comportamento.
 
 ---
 
-## 💳 Ecossistema 5 — Pagamentos (Raspberry Pi 5 4GB)
+## 💳 Finanças — Integrado ao Mordomo Central
 
-PIX, Open Banking, detecção de fraudes, emissão de boletos/NFe.
+> **Pagamentos e gestão financeira estão integrados diretamente ao Orange Pi 5 Ultra** — não há hardware separado.
 
-### Containers (6 total)
-
-| # | Container | Função | RAM |
-|---|-----------|--------|-----|
-| 1 | `pagamentos-brain` | LLM Qwen 1.5B | 2.5GB |
-| 2 | `pix-gateway` | API Bacen + PSPs | 384MB |
-| 3 | `open-banking` | Pluggy/Belvo | 512MB |
-| 4 | `fraud-detector` | Isolation Forest ML | 256MB |
-| 5 | `invoice-generator` | Boletos/NFe | 192MB |
-| 6 | `wallet-integrator` | PicPay, Mercado Pago | 256MB |
-
-### Totais de Recursos
-
-| Recurso | Valor |
-|---------|-------|
-| **RAM** | 4.1GB / 4GB (103% — swap 1GB) |
-| **CPU** | 335% / 400% (84% uso) |
-| **LLM** | Qwen 1.5B Q4_K_M (0.9GB VRAM) |
+| Container | Função | Auth |
+|-----------|--------|------|
+| `mordomo-financas-pix` | Gateway PIX (Asaas API) | Voice auth confidence ≥ 0.95 |
+| `mordomo-financas-contas` | Gestão de contas e extratos | Voice auth confidence ≥ 0.95 |
 
 ---
 
-## 📈 Ecossistema 6 — Investimentos (Raspberry Pi 5 16GB)
+## 📈 Ecossistema 4 — Investimentos (Raspberry Pi 5 16GB)
 
 Trading automatizado (ações, cripto, forex), ML predição, apostas esportivas.
 
@@ -447,13 +442,13 @@ Trading automatizado (ações, cripto, forex), ML predição, apostas esportivas
 
 | # | Container | Função | RAM |
 |---|-----------|--------|-----|
-| 1 | `investimentos-brain` | LLM Qwen 3B | 3GB |
-| 2 | `stock-trading-bot` | Binance/B3 | 2GB |
-| 3 | `technical-analysis` | TA-Lib | 3GB |
-| 4 | `news-sentiment` | FinBERT | 2.5GB |
-| 5 | `betting-bot` | Bet365/Pinnacle | 1GB |
-| 6 | `ml-predictor` | LSTM + LightGBM | 3GB |
-| 7 | `portfolio-manager` | Gestão de portfólio | 1.5GB |
+| 1 | `investimentos-brain` | LLM Qwen 3B (local, RPi 5) | 3GB |
+| 2 | `investimentos-trading-bot` | Binance/Bybit | 2GB |
+| 3 | `investimentos-technical-analysis` | TA-Lib | 3GB |
+| 4 | `investimentos-news-sentiment` | FinBERT | 2.5GB |
+| 5 | `investimentos-betting-bot` | Bet365 | 1GB |
+| 6 | `investimentos-ml-predictor` | LSTM + LightGBM | 3GB |
+| 7 | `investimentos-portfolio-manager` | Gestão de portfólio | 1.5GB |
 
 ### Totais de Recursos
 
@@ -465,48 +460,30 @@ Trading automatizado (ações, cripto, forex), ML predição, apostas esportivas
 
 ---
 
-## 🎬 Ecossistema 7 — Entretenimento (Raspberry Pi 5 8GB)
+## 🎬 Entretenimento — Integrado ao NAS
 
-Media server (Jellyfin), downloads automáticos, controle de TV/Som.
-
-### Containers (6 total)
-
-| # | Container | Função | RAM |
-|---|-----------|--------|-----|
-| 1 | `entretenimento-brain` | LLM Qwen 1.5B | 2.5GB |
-| 2 | `media-server` | Jellyfin | 1.5GB |
-| 3 | `download-manager` | qBittorrent | 512MB |
-| 4 | `media-organizer` | Radarr + Sonarr | 768MB |
-| 5 | `subtitle-fetcher` | Bazarr | 256MB |
-| 6 | `streaming-aggregator` | Netflix/Spotify APIs | 512MB |
-
-### Totais de Recursos
-
-| Recurso | Valor |
-|---------|-------|
-| **RAM** | 6GB / 8GB (75% uso) |
-| **CPU** | 360% / 400% (90% uso) |
-| **Storage** | HD Externo 2TB USB 3.0 |
-| **LLM** | Qwen 1.5B Q4_K_M (0.9GB VRAM) |
+> **O Jellyfin (media server) está no hardware NAS** junto com os demais serviços de armazenamento.
+> Os containers de download (qBittorrent), Radarr, Sonarr, Bazarr e streaming aggregator foram descontinuados.
 
 ---
 
-## 💾 Ecossistema 8 — NAS (Raspberry Pi 5 8GB)
+## 💾 Ecossistema 5 — NAS (hardware dedicado)
 
 Backup automático de fotos do iPhone, armazenamento centralizado, deduplicação.
 
-### Containers (8 total)
+### Containers (9 total)
 
 | # | Container | Função | RAM |
 |---|-----------|--------|-----|
 | 1 | `nas-brain` | LLM Qwen 1.5B | 2.5GB |
-| 2 | `file-sync` | Syncthing | 512MB |
-| 3 | `photo-backup` | PhotoPrism + iCloud | 1.5GB |
-| 4 | `object-storage` | MinIO S3 | 1GB |
-| 5 | `deduplication` | Btrfs + rmlint | 768MB |
-| 6 | `smb-server` | Samba | 384MB |
-| 7 | `backup-manager` | Restic | 512MB |
-| 8 | `media-indexer` | AI tagging | 1GB |
+| 2 | `nas-file-sync` | Syncthing | 512MB |
+| 3 | `nas-photo-backup` | PhotoPrism + iCloud | 1.5GB |
+| 4 | `nas-object-storage` | MinIO S3 | 1GB |
+| 5 | `nas-deduplication` | Btrfs + rmlint | 768MB |
+| 6 | `nas-smb-server` | Samba | 384MB |
+| 7 | `nas-backup-manager` | Restic | 512MB |
+| 8 | `nas-media-indexer` | AI tagging | 1GB |
+| 9 | `nas-media-server` | Jellyfin (media server) | 1.5GB |
 
 ### Totais de Recursos
 
@@ -618,23 +595,21 @@ nas.backup.completed
 
 | Hardware | Qtd | Preço Unit. | Total |
 |----------|-----|-------------|-------|
-| Orange Pi 5 16GB | 1 | $130 | $130 |
+| Orange Pi 5 Ultra 16GB | 1 | $130 | $130 |
 | Raspberry Pi 5 16GB | 1 | $120 | $120 |
-| Raspberry Pi 5 8GB | 3 | $80 | $240 |
-| Raspberry Pi 5 4GB | 1 | $60 | $60 |
 | Raspberry Pi 3B+ | 1 | $35 | $35 |
 | Jetson Orin Nano 8GB | 1 | $249 | $249 |
-| Periféricos (fontes, cases, cabos) | — | — | $243 |
+| Hardware NAS | 1 | — | — |
+| Periféricos (fontes, cases, cabos) | — | — | ~$150 |
 
 ### Armazenamento ($462)
 
 | Item | Preço |
 |------|-------|
-| MicroSD cards (7x) | ~$112 |
+| MicroSD cards (4x) | ~$64 |
 | HDD 4TB (2x RAID 1) | $180 |
 | SSD NVMe 1TB (NAS tiering) | $70 |
 | SSD NVMe 256GB (Mordomo) | $35 |
-| HD Externo 2TB (Entretenimento) | $65 |
 
 ### Rede ($40)
 
@@ -811,12 +786,12 @@ Câmera: Pessoa desconhecida (Segurança Vision)
 
 | Métrica | Valor |
 |---------|-------|
-| **Hardwares** | 7 dispositivos independentes |
-| **RAM Total** | 61GB (16+8+1+4+16+8+8) |
-| **CPU Total** | 40 cores (diversos ARM64) |
+| **Hardwares** | 5 dispositivos independentes |
+| **RAM Total** | ~49GB (16+1+8+16+8) |
+| **CPU Total** | ~28 cores ARM64 |
 | **Armazenamento** | 12TB+ (MicroSDs + HDs + SSDs) |
 | **NPU/GPU** | 6 TOPS (NPU) + 1024 CUDA cores |
-| **Consumo Energia** | 47-75W médio |
+| **Consumo Energia** | ~40-60W médio |
 | **Latência Comandos** | < 500ms (voz → ação) |
 | **Latência IoT** | < 150ms (ESP32 via Access Point) |
 | **Throughput NATS** | 10.000+ msg/s |
@@ -837,21 +812,22 @@ Câmera: Pessoa desconhecida (Segurança Vision)
 - [x] **Total:** 7 READMEs detalhados + análise de viabilidade
 
 ### ⏳ Fase 2: Infraestrutura Central (Próximo)
-- [ ] Deploy Aslam (Orange Pi 5 16GB)
-  - [ ] NATS Cluster (3 nodes)
+- [ ] Deploy Mordomo (Orange Pi 5 Ultra 16GB)
+  - [ ] NATS (message broker)
   - [ ] Consul (service discovery)
   - [ ] Qdrant (vector DB para RAG)
   - [ ] PostgreSQL (dados relacionais)
   - [ ] Prometheus + Loki + Grafana
-  - [ ] Brain Aslam (Qwen 2.5 3B)
+  - [ ] mordomo-brain (LLM Cloud-primary: Gemini/GPT/Claude)
+  - [ ] mordomo-vault (credenciais)
+  - [ ] mordomo-people (identity store)
   - [ ] OpenClaw Agent (Comunicação + RPA)
 
 ### 📅 Fases 3-7: Módulos Incrementais
 - [ ] **Fase 3:** IoT (RPi 3B+) — Automação básica
 - [ ] **Fase 4:** Segurança (Jetson) — Câmeras + Vision AI
-- [ ] **Fase 5:** Entretenimento (RPi 5 8GB) — Media server
-- [ ] **Fase 6:** Pagamentos (RPi 5 4GB) — PIX + Open Banking
-- [ ] **Fase 7:** Investimentos (RPi 5 16GB) — Trading bots
+- [ ] **Fase 5:** Investimentos (RPi 5 16GB) — Trading bots
+- [ ] **Fase 6:** NAS — Storage + Jellyfin
 
 ### 🎯 Fase 8: Otimização e Produção
 - [ ] Testes de carga (stress testing)
@@ -900,10 +876,8 @@ Câmera: Pessoa desconhecida (Segurança Vision)
 | Módulo | Prioridade |
 |--------|-----------|
 | Segurança (Jetson Orin Nano) | Alta — hardware mais complexo |
-| Pagamentos (RPi 5 4GB) | Alta — RAM 103% (swap) precisa validação |
 | Investimentos (RPi 5 16GB) | Média — RAM 100% precisa validação |
-| Entretenimento (RPi 5 8GB) | Média |
-| NAS (RPi 5 8GB) | Média — RAM 103% (swap) precisa validação |
+| NAS (hardware dedicado) | Média — RAM + Jellyfin |
 
 > **Processo:** Mesma profundidade que Mordomo e IoT (verificar recursos, containers, integrações NATS)
 
@@ -974,15 +948,13 @@ Cada hardware possui README detalhado com:
 - Fluxos de comunicação via NATS
 - Casos de uso práticos
 
-| Hardware | README | Containers | Status |
-|----------|--------|------------|--------|
-| Orange Pi 5 16GB (Mordomo) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/mordomo%20-%20(orange-pi-5-16gb)/README.md) | 25 (16+5+4) | ✅ Auditado |
-| Jetson Orin Nano (Segurança) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/seguranca%20-%20(jetson-orin-nano)/README.md) | 7 + LLM Vision | ✅ Documentado |
-| RPi 3B+ (IoT) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/iot%20-%20(raspberry-pi-3b)/README.md) | 4 (ESP32 DIY) | ✅ Auditado |
-| RPi 5 4GB (Pagamentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/pagamentos%20-%20(raspberry-pi-5-4gb)/README.md) | 6 + LLM | ✅ Documentado |
-| RPi 5 16GB (Investimentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/investimentos%20-%20(raspberry-pi-5-16gb)/README.md) | 7 + LLM | ✅ Documentado |
-| RPi 5 8GB (Entretenimento) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/entretenimento%20-%20(raspberry-pi-5-8gb)/README.md) | 6 + LLM | ✅ Documentado |
-| RPi 5 8GB (NAS) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/nas%20-%20(raspberry-pi-5-8gb)/README.md) | 8 + LLM | ✅ Documentado |
+| Hardware | README | Repos | Status |
+|----------|--------|-------|--------|
+| Orange Pi 5 Ultra 16GB (Mordomo) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/mordomo%20-%20(orange-pi-5-16gb)/README.md) | 21 | 📋 Documentado |
+| Jetson Orin Nano (Segurança) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/seguranca%20-%20(jetson-orin-nano)/README.md) | 7 + LLM Vision | 📋 Documentado |
+| RPi 3B+ (IoT) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/iot%20-%20(raspberry-pi-3b)/README.md) | 4 (ESP32 DIY) | 📋 Documentado |
+| RPi 5 16GB (Investimentos) | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/investimentos%20-%20(raspberry-pi-5-16gb)/README.md) | 7 + LLM | 📋 Documentado |
+| NAS hardware | [Ver](https://github.com/AslamSys/_system/blob/main/hardware/nas%20-%20(raspberry-pi-5-8gb)/README.md) | 9 + LLM | 📋 Documentado |
 
 ### Documentação Geral
 

@@ -104,11 +104,11 @@
     // ── Finanças ──
     {
       "name": "💳 mordomo-financas-pix",
-      "path": "../pagamentos-pix-gateway"
+      "path": "../mordomo-financas-pix"
     },
     {
       "name": "💳 mordomo-financas-contas",
-      "path": "../financas-contas"
+      "path": "../mordomo-financas-contas"
     },
 
     // ══════════════════════════════════════════════

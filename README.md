@@ -1,6 +1,6 @@
 # 🤖 Aslam System — Workspace Central
 
-> **Este repositório `.github` serve como hub central para visualizar, navegar e gerenciar todos os 55 repositórios do projeto Aslam de uma só vez.**
+> **Este repositório `.github` serve como hub central para visualizar, navegar e gerenciar todos os 50 repositórios do projeto Aslam de uma só vez.**
 
 ---
 
@@ -61,7 +61,7 @@ Isso abre **todos os 55 repositórios** organizados por ecossistema no VS Code �
 └────┘ └─────┘ └──────────┘ └────────┘ └────────┘ └───────┘
 ```
 
-**Totais:** 7 hardwares · 71+ containers · 6 LLMs · 61GB RAM · 40 CPU cores
+**Totais:** 5 hardwares · 50 repos · 3 LLMs locais + Cloud ilimitada · ~49GB RAM
 
 ---
 
@@ -73,16 +73,16 @@ O arquivo `aslam-system.code-workspace` organiza tudo assim:
 |-------|-------------|----------|-------|------------|
 | 📋 | `_system` | — | 1 | Orchestration (docker-compose + docs) |
 | 🏠 | `.github` | — | 1 | Este repo (overview) |
-| 🎤 | Mordomo — STT | Orange Pi 5 16GB | 6 | audio-capture-vad, wake-word, speaker-verify, whisper, diarization, source-sep |
-| 🔊 | Mordomo — TTS | Orange Pi 5 16GB | 2 | tts-engine, audio-bridge |
-| 🧠 | Mordomo — Core | Orange Pi 5 16GB | 7 | orchestrator, brain, watchdog, skills, gateway, dispatcher, dashboard |
-| 🐙 | Mordomo — OpenClaw | Orange Pi 5 16GB | 1 | openclaw-agent (4 módulos internos) |
-| 📱 | IoT | RPi 3B+ 1GB | 3 | orchestrator, mqtt-broker, state-cache |
-| 🛡️ | Segurança | Jetson Orin Nano | 7 | brain, cameras, yolo, face-rec, events, alerts, recorder |
-| 💳 | Pagamentos | RPi 5 4GB | 6 | brain, pix, open-banking, fraud, invoices, wallets |
+| 🎞️ | Mordomo — STT | Orange Pi 5 Ultra 16GB | 6 | audio-capture-vad, wake-word, speaker-verify, whisper, diarization, source-sep |
+| 🔊 | Mordomo — TTS/Output | Orange Pi 5 Ultra 16GB | 3 | tts-engine, audio-bridge, visual-feedback |
+| 🧠 | Mordomo — Core | Orange Pi 5 Ultra 16GB | 7 | orchestrator, brain, watchdog, skills, gateway, dispatcher, dashboard |
+| 🐙 | Mordomo — OpenClaw | Orange Pi 5 Ultra 16GB | 1 | openclaw-agent |
+| 🔑 | Mordomo — Identity/Vault | Orange Pi 5 Ultra 16GB | 2 | people, vault |
+| 💳 | Mordomo — Finanças | Orange Pi 5 Ultra 16GB | 2 | financas-pix, financas-contas |
+| 📱 | IoT | RPi 3B+ 1GB | 4 | iot-orchestrator, iot-mqtt-broker, iot-state-cache, iot-tv-connector |
+| 🛡️ | Segurança | Jetson Orin Nano 8GB | 7 | brain, cameras, yolo, face-rec, events, alerts, recorder |
 | 📈 | Investimentos | RPi 5 16GB | 7 | brain, trading, tech-analysis, sentiment, betting, ml, portfolio |
-| 🎬 | Entretenimento | RPi 5 8GB | 6 | brain, media-server, radarr, sonarr, bazarr, streaming |
-| 💾 | NAS | RPi 5 8GB | 8 | brain, file-sync, photo-backup, object-storage, dedup, smb, backup, indexer |
+| 💾 | NAS | Hardware NAS | 9 | brain, file-sync, photo-backup, object-storage, dedup, smb, backup, indexer, media-server |
 
 ---
 
