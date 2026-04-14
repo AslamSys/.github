@@ -63,7 +63,7 @@
       "path": "../mordomo-brain"
     },
     {
-      "name": "🧠 mordomo-system-watchdog",
+      "name": "✅🧠 mordomo-system-watchdog",
       "path": "../mordomo-system-watchdog"
     },
     {
@@ -87,6 +87,12 @@
     {
       "name": "🐙 mordomo-openclaw-agent",
       "path": "../mordomo-openclaw-agent"
+    },
+
+    // ── Infraestrutura (nats, consul, qdrant, postgres, llm-gateway) ──
+    {
+      "name": "✅🏗️ mordomo-infraestrutura",
+      "path": "../mordomo-infraestrutura"
     },
 
     // ── Pessoas (Identity Store) ──
@@ -119,11 +125,11 @@
       "path": "../mordomo-iot-orchestrator"
     },
     {
-      "name": "📱 mordomo-iot-mqtt-broker",
+      "name": "✅📱 mordomo-iot-mqtt-broker",
       "path": "../mordomo-iot-mqtt-broker"
     },
     {
-      "name": "📱 mordomo-iot-state-cache",
+      "name": "✅📱 mordomo-iot-state-cache",
       "path": "../mordomo-iot-state-cache"
     },
     {
