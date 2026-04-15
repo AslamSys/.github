@@ -1,31 +1,29 @@
-# Workflow reutilizável — Docker Build & Push
+# Workflow reutilizável de build e push para Docker Hub (renaneunao)
 #
-# Este arquivo pertence ao repo AslamSys/.github
-# Caminho esperado: .github/workflows/docker-build-push.yml
+# Repo: AslamSys/.github
+# Path: .github/workflows/docker-build-push.yml
 #
-# Uso em qualquer repo da org:
+# Uso em qualquer repo da org (trocar só image_name):
 #
 #   jobs:
 #     docker:
 #       uses: AslamSys/.github/.github/workflows/docker-build-push.yml@main
 #       with:
-#         image_name: nome-da-imagem
+#         image_name: mordomo-brain
 #       secrets: inherit
-#
-# Secret necessário no repo (ou na org): DOCKERHUB_TOKEN
-# Imagens publicadas em: docker.io/renaneunao/{image_name}
 
 name: Docker Build & Push
 
+# ─── Interface pública ──────────────────────────────────────────────────────
 on:
   workflow_call:
     inputs:
       image_name:
-        description: "Nome da imagem sem registry/namespace (ex: mordomo-brain)"
+        description: "Nome da imagem (ex: mordomo-brain) — publicado em renaneunao/{image_name}"
         required: true
         type: string
       context:
-        description: "Diretório de contexto do build (relativo à raiz do repo)"
+        description: "Contexto do build (relativo à raiz do repo)"
         required: false
         type: string
         default: "."
@@ -35,7 +33,7 @@ on:
         type: string
         default: "Dockerfile"
       platforms:
-        description: "Plataformas alvo (padrão: linux/arm64 para Orange Pi)"
+        description: "Plataformas alvo"
         required: false
         type: string
         default: "linux/arm64"
@@ -43,30 +41,38 @@ on:
       DOCKERHUB_TOKEN:
         required: true
 
+# ─── Job ────────────────────────────────────────────────────────────────────
 jobs:
   build-and-push:
     name: Build & Push ${{ inputs.image_name }}
     runs-on: ubuntu-latest
 
     steps:
+
+      # ── 1. Código ──────────────────────────────────────────────────────────
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up QEMU (cross-build ARM64)
+      # ── 2. Ambiente de build ───────────────────────────────────────────────
+      - name: Setup QEMU (cross-compile ARM64)
         uses: docker/setup-qemu-action@v3
         with:
           platforms: ${{ inputs.platforms }}
 
-      - name: Set up Docker Buildx
+      - name: Setup Buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          install: true
 
+      # ── 3. Autenticação ────────────────────────────────────────────────────
       - name: Login no Docker Hub
         uses: docker/login-action@v3
         with:
           username: renaneunao
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Extrair metadados (tags e labels)
+      # ── 4. Metadados ───────────────────────────────────────────────────────
+      - name: Gerar tags e labels
         id: meta
         uses: docker/metadata-action@v5
         with:
@@ -75,6 +81,7 @@ jobs:
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha,prefix=sha-,format=short
 
+      # ── 5. Build & Push ────────────────────────────────────────────────────
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
@@ -84,5 +91,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          provenance: false   # desativa attestation manifest (evita push extra)
+          sbom: false         # desativa SBOM manifest (evita push extra)
           cache-from: type=gha
           cache-to: type=gha,mode=max
